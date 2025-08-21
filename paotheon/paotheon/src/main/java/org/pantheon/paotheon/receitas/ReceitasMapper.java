@@ -18,5 +18,5 @@ public class ReceitasMapper{
                 receitaDto.getId(),
                 receitaDto.getName()
                 );
-    }
+        }
 }

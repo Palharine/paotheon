@@ -5,23 +5,28 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.pantheon.paotheon.receitas.ReceitasService;
 @RestController
 public class ReceitasController {
 
+private ReceitasService receitasService;
 
-@RequestMapping("/api/salvarreceita")
+@PostMapping("/api/salvarreceita")
 public ResponseEntity<ReceitasDTO> createReceita(ReceitasDTO receitaDto){
-   ReceitasDTO salvarreceita =  ReceitasService.createReceita(receitaDto);
-       return new ResponseEntity<>(salvarreceita, HttpStatus.CREATED);
+   ReceitasDTO salvarReceita =  receitasService.createReceita(receitaDto);
+       return new ResponseEntity<>(salvarReceita, HttpStatus.CREATED);
 }
 
-
-    
-@GetMapping("/receitas")
-public ResponseEntity<List<Receita>> getallReceitas(){
-    return new ResponseEntity<List<Receita>>(ReceitaService.allReceitas(), HttpStatus.OK);
+@GetMapping("/api/receita")
+    public ResponseEntity<Receita> getReceitaByName(@PathVariable("nome") ReceitasDTO receitaDto){
+        ReceitasDTO receitaDto = receitasService.getReceitaByName(receitaDto); 
+    }
+@GetMapping("/api/receitas")
+public ResponseEntity<List<Receita>> getAllReceitas(){
+    return new ResponseEntity<List<Receita>>(receitasService.allReceitas(), HttpStatus.OK);
     }
 }
