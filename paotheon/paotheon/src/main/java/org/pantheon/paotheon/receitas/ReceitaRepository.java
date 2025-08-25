@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ReceitaRepository extends JpaRepository<Receita,Long>{
     
-    Optional<Receita> getReceitaByName(String nomeReceita);
-    void saveReceita(Receita receita);
-    void deleteReceita(Receita receita);
-    List<Receita> getAllReceita();
+    Optional<ReceitaMinDTO> getReceitaByName(String nomeReceita);
+    void saveReceita(ReceitasDTO receitaDto);
+    void deleteReceita(ReceitasDTO receitaDto);
+    List<ReceitaMinDTO> getAllReceita();
 
 }

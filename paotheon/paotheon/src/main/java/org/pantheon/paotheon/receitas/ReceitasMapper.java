@@ -15,8 +15,8 @@ public class ReceitasMapper{
 
     public static Receita mapToReceita(ReceitasDTO receitasDto){
         return new Receita(
-                receitaDto.getId(),
-                receitaDto.getName()
+                receitasDto.getId(),
+                receitasDto.getName()
                 );
         }
 }

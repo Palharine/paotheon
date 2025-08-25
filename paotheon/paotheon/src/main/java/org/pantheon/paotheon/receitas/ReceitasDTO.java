@@ -1,10 +1,12 @@
 package org.pantheon.paotheon.receitas;
 
 import org.pantheon.paotheon.receitas.Receita;
+import org.springframework.beans.BeanUtils;
 
+import java.util.List;
+
+import org.pantheon.paotheon.ingredientes.Ingredientes;
 public class ReceitasDTO{
- 
-  
 
     protected Long idReceita;
     
@@ -14,13 +16,16 @@ public class ReceitasDTO{
     
     protected String descricao;
     
-   public ReceitasDTO(){}
+    protected List<Ingredientes> ingredientes;
+    
+    protected List<String> utensilios;
 
-   public ReceitasDTO(Receita entity){
-    idReceita = entity.getId();
-    nomeReceita = entity.getName();
-    tempoPreparo = entity.getTempo();
-    descricao = entity.getDescricao();
+    protected List<String> modoPreparo;
+   
+    public ReceitasDTO(){}
+
+    public ReceitasDTO(Receita entity){
+        BeanUtils.copyProperties(entity,this);
    }
 
    public Long getId(){
@@ -36,5 +41,38 @@ public class ReceitasDTO{
         return descricao;
    }
 
+   public void setId(Long idReceita){
+       this.idReceita = idReceita;
+   }
+   public void setName(String nomeReceita){
+        this.nomeReceita = nomeReceita;
+   }
+   public void setTempo(double tempoPreparo){
+        this.tempoPreparo = tempoPreparo;
+   }
+   public void setDescricao(String descricao){
+        this.descricao = descricao;
+   }
+   public List<Ingredientes> getIngredientes(){
+        return ingredientes;
+   }
+   public void setIngredientes(List<Ingredientes> ingredientes){
+        this.ingredientes = ingredientes;
+   }    
+
+   public List<String> getUtensilios(){
+       return utensilios;
+   }
+
+   public void setUtensilios(List<String> utensilios){
+        this.utensilios = utensilios;
+   }
+
+   public List<String> getModoPreparo(){
+        return modoPreparo;
+   }
+   public void setModoPreparo(List<String> modoPreparo){
+        this.modoPreparo = modoPreparo;
+   }
 
 }

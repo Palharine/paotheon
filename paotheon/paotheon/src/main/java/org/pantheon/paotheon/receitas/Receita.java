@@ -1,9 +1,12 @@
 package org.pantheon.paotheon.receitas;
 
+import org.pantheon.paotheon.ingredientes.Ingredientes;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
