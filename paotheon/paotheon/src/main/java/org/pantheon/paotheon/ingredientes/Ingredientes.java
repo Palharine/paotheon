@@ -70,10 +70,10 @@ public class Ingredientes {
     }
     
     //Fazer o hashcode certo
-    //@Override
-    //public String hashCode(){
-       // return toString(Objects.hash(nomeIngrediente));
-    //}
+    @Override
+    public int hashCode(){
+        return Objects.hash(id);
+    }
     
     @Override
     public boolean equals(Object obj){
@@ -87,7 +87,7 @@ public class Ingredientes {
             return false;
         }
         Ingredientes other = (Ingredientes) obj;
-        return Objects.equals(nomeIngrediente, other.nomeIngrediente);
+        return Objects.equals(id, other.id);
     }
 }
 

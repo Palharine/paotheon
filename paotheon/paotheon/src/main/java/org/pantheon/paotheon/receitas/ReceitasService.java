@@ -9,6 +9,6 @@ public interface ReceitasService{
     public ReceitasDTO createReceita (ReceitasDTO receitasDto);
     public List<ReceitaMinDTO> findAll();
     public ReceitaMinDTO getReceitaByName(ReceitaMinDTO receita);    
-    
+    public ReceitasDTO findById(Long id);   
 }
  

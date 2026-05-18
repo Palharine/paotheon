@@ -1,0 +1,14 @@
+<p>receitas-list works!</p>
+<table class = "table to show">
+<thead>
+  <tr>
+    <th>Nome</th>
+    <th>Tempo de Preparo</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor = "let receita of receitas">
+    <td>{{ receitas.nomeReceita}}</td>
+    <td>{{receitas.tempoPreparo}}</td>
+</tbody>
+</table>

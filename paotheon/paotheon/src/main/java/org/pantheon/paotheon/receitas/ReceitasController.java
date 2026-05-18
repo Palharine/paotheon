@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.pantheon.paotheon.receitas.ReceitasService;
 @RestController
-@RequestMapping(value ="/api")
+@RequestMapping(value ="/api/receitas")
 public class ReceitasController {
 
 @Autowired
@@ -30,8 +30,14 @@ public ResponseEntity<ReceitasDTO> createReceita(ReceitasDTO receitaDto){
         return new ResponseEntity<>(getReceita, HttpStatus.FOUND); 
     }
 @GetMapping("/receitas")
-public List<ReceitaMinDTO> findAll(){
+    public List<ReceitaMinDTO> findAll(){
     List<ReceitaMinDTO> result = receitasService.findAll();
     return result;
     }
+
+@GetMapping("/{id}")
+public ReceitasDTO findById(@PathVariable Long id){
+    ReceitasDTO result = receitasService.findById(id);
+    return result;
+}
 }
