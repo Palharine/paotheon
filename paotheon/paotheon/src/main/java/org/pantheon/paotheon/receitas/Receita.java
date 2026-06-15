@@ -5,6 +5,8 @@ import org.pantheon.paotheon.ingredientes.Ingredientes;
 import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -18,6 +20,8 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import jakarta.persistence.Transient;
 
 @Entity
 @Component
@@ -49,7 +53,12 @@ import lombok.NoArgsConstructor;
 
     @Column(name = "modo_preparo")
     protected List<String> modoPreparo;
-   
+    
+    @Transient
+    @JsonProperty("minhaLista")
+    private boolean minhaLista;
+
+
     public Receita(){}    
 
     public Receita(Long idReceita,String nomeReceita, double tempoPreparo, String descricao, String infoAdicionais){
